@@ -1,7 +1,9 @@
 # Particula "Items-cualidades"
 
 Partícula para Gantry 5 que te permite incluir Items de elementos con diferentes características y diseños, ofrenciendo al mismo tiempo múltiples opciones de configuración.
-![myimage-alt-tag](https://pbs.twimg.com/profile_images/638772334476808192/uFt4gDJ2.jpg)
+
+![preview-items-cualidades](https://cloud.githubusercontent.com/assets/9434043/24688531/29dd57be-1986-11e7-8b81-628f2aa0444a.png)
+
 
 Instalación
 -----------
