@@ -1,9 +1,11 @@
 # Particula "Items-cualidades"
 
 Partícula para Gantry 5 que te permite incluir Items de elementos con diferentes características y diseños, ofrenciendo al mismo tiempo múltiples opciones de configuración.
+![myimage-alt-tag](https://pbs.twimg.com/profile_images/638772334476808192/uFt4gDJ2.jpg)
 
 Instalación
 -----------
+
 No hemos incluido un instalador ya que deseamos que esta partícula pueda ser usada tanto en Joomla como en Wordpress. 
 El modo de instalación es muy sencillo:
 
