@@ -1,0 +1,582 @@
+name: Items Cualidades
+description: Particula que nos permite mostrar elementos con diferentes opciones de configuración (Título, ícono, descripción, boton de accción, etc).
+type: particle
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Habilitar
+      description: Globally enable Features particles.
+      default: true
+
+    separador01:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes del encabezado</h4>'
+
+    tituloprincipal:
+      type: input.text
+      label: Título General
+      description: Escribe el título general de la partícula
+      placeholder: 'Ingrese el título'
+      default: 'Título General'
+
+    etiquetatitulo:
+      type: select.select
+      label: Etiqueta del título
+      description: Defina Etiqueta del título general.
+      placeholder: 'Seleccionar'
+      default: h2  
+      options:
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+
+    colortituloprincipal:
+      type: input.colorpicker
+      label: Color Título
+
+    textointroduccion:
+      type: textarea.textarea
+      label: Texto de Introducción
+      description: Escribe el texto de introducción de la partícula.
+      placeholder: 'Escribe el texto de introducción'
+      default: 'Mi texto de introducción'
+
+
+    colortextointroduccion:
+      type: input.colorpicker
+      label: Color introducción
+
+    separador02:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes generales de los Items</h4>'
+
+    disenoparticula:
+      type: select.select
+      label: Estilo
+      description: Seleccione el estilo que definirá el diseño de la partícula. 
+      placeholder: 'Seleccionar...'
+      default: diseno1-oscuro
+      options:        
+        diseno1-oscuro: Diseño 1 (Fondo Oscuro)
+        diseno1-claro: Diseño 1 (Fondo Claro)
+        diseno2-oscuro: Diseño 2 (Fondo Oscuro)
+        diseno2-claro: Diseño2 (Fondo Claro)
+        diseno3-oscuro: Diseño 3 (Fondo Oscuro)
+        diseno3-claro: Diseño 3 (Fondo Claro)
+        diseno4-oscuro: Diseño 4 (Fondo Oscuro)
+        diseno4-claro: Diseño 4 (Fondo Claro)       
+ 
+
+    ncolumnas:
+      type: select.select
+      label: Elementos por Fila
+      description: Seleccione el numero de elementos por fila.
+      placeholder: 'Seleccionar...'
+      default: 3
+      options:
+        1: 1
+        2: 2
+        3: 3
+        4: 4
+        5: 5
+        6: 6
+
+    espaciadobloque:
+      type: input.text
+      label: Espaciado interno
+      description: 'Espaciado para cada bloque'
+      placeholder: '0rem'
+
+    clasecssgeneral:
+      type: input.selectize
+      label: Clases CSS
+      description: Nombre de la clase CSS para la partícula.
+      default: 
+
+    extrageneral:
+      type: collection.keyvalue
+      label: Atributos adicionales
+      description: Ingrese atributos adicionales a la etiqueta.
+      key_placeholder: Key (data-*, style, ...)
+      value_placeholder: Value
+      exclude: ['id', 'class']
+
+
+    separador03:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes generales de los Íconos</h4>'
+
+
+    tamanoicono:
+      type: input.text
+      label: Tamaño ícono
+      description: 'Recomendaciones: <br/> Diseño 1: 4rem (Recomend), <br /> Diseño 2: 1.5rem (Recomend)'
+      placeholder: '3rem'
+      
+
+    tamanobloqueicono:
+      type: input.text
+      label: Tamaño del Bloque
+      description: 'Recomendaciones: <br/> Diseño 1: 6rem (Recomend), <br /> Diseño 2: 2.5rem (Recomend)'
+      placeholder: '6rem'
+      default: '6rem'
+
+    bordesredondeados:
+      type: input.text
+      label: Bordes Redondeados
+      description: 'Recomendaciones: <br/> Cículo perfecto: 50%<br /> Cuadrado perfecto: 0'
+      placeholder: '50%'
+
+    anchurabordes:
+      type: input.text
+      label: Grosor del borde
+      description: 'Recomendaciones: <br/> Cículo perfecto: 50%<br /> Cuadrado perfecto: 0'
+      placeholder: '0px'
+
+    colorbordes:
+      type: input.colorpicker
+      label: Color de Borde
+      placeholder: 'Color del borde'
+
+
+    margenbloquet:
+      type: input.text
+      label: Margen Superior
+      description: 'Define el margen Superior (espaciado) del Bloque'
+      placeholder: '0rem'  
+
+    margenbloqueb:
+      type: input.text
+      label: Margen Inferior
+      description: 'Define el margen inferior (espaciado) del Bloque'
+      placeholder: '0rem'
+
+    separador04:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes generales de los Títulos</h4>'
+
+    etiquetasubtitulo:
+      type: select.select
+      label: Etiqueta de los títulos
+      description: Etiqueta de encabezado del título.
+      placeholder: 'Seleccionar'
+      default: h4  
+      options:
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+
+    target:
+      type: select.select
+      label: Target
+      description: Defina la ventana donde se abrirá el enlace. 
+      placeholder: 'Seleccionar...'
+      default: _parent
+      options:
+        _parent: Self
+        _blank: New Window
+
+    tituloantesdelaimagen:
+      type: input.checkbox
+      label: ¿Título antes del icono?
+      description: Marcando esta opción  se mostrará el título antes de la imagen. 
+      default: false
+
+    mtsubtitulo:
+      type: input.text
+      label: Margen Superior
+      placeholder: '0rem'
+
+    mbsubtitulo:
+      type: input.text
+      label: Margen inferior
+      placeholder: '0rem'
+
+
+    items:
+      type: collection.list
+      array: true
+      label: Elementos
+      description: Define el contenido para cada elemento a mostrar. 
+      value: name
+      ajax: true
+
+      fields:
+
+        tabs:
+          type: container.tabs
+          fields:
+            tab_1:
+              label: Ícono e Imagen
+              fields:   
+
+                separador05:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes individuales del Ícono</h4>'
+
+                estiloicono:
+                  type: select.select
+                  label: Efecto de íconos
+                  description: Seleccione el estilo que definirá el diseño de los ícono. 
+                  placeholder: 'Seleccionar...'
+                  default: hi-icon-efecto-1
+                  options:        
+                    hi-icon-efecto-ninguno: Ninguno
+                    hi-icon-efecto-1: Efecto 1
+                    hi-icon-efecto-2 hi-icon-efecto-2h: Efecto 2
+                    hi-icon-efecto-2 hi-icon-efecto-3h: Efecto 3
+                    hi-icon-efecto-4 hi-icon-efecto-4h: Efecto 4
+                    hi-icon-efecto-5 hi-icon-efecto-5h: Efecto 5
+                    hi-icon-efecto-6 hi-icon-efecto-6h: Efecto 6
+                    hi-icon-efecto-6 hi-icon-efecto-7h: Efecto 7
+                    hi-icon-efecto-8: Efecto 8
+                    hi-icon-efecto-8 hi-icon-efecto-9h: Efecto 9
+                    hi-icon-efecto-10 hi-icon-efecto-10h: Efecto 10
+                    hi-icon-efecto-10 hi-icon-efecto-11h: Efecto 11
+                    hi-icon-efecto-10 hi-icon-efecto-12h: Efecto 12
+                    hi-icon-efecto-10 hi-icon-efecto-13h: Efecto 13
+                    hi-icon-efecto-14: Efecto 14
+                  
+                icono:
+                  type: input.icon
+                  label: Icono
+
+                coloricono:
+                  type: input.colorpicker
+                  label: Color del Ícono
+                  placeholder: 'Color del Ícono'
+
+                colorfondoicono:
+                  type: input.colorpicker
+                  label: Color Fondo Ícono
+                  placeholder: 'Color de Fondo del Ícono'
+                  
+
+                separador06:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes de la imagen</h4>'
+
+                  
+                imagenprincipal:
+                  type: input.imagepicker
+                  label: Imagen
+
+                efectoimagen:
+                  type: select.select
+                  label: Efecto imagen
+                  description: Seleccione el efecto para la imagen. 
+                  placeholder: 'Seleccionar...'
+                  default: ninguno
+                  options: 
+                    ninguno: Ninguno    
+                    efectoimg1: Efecto 1
+                    efectoimg2: Efecto 2
+                    efectoimg3: Efecto 3
+                    efectoimg4: Efecto 4
+
+
+            tab_2:
+              label: Título y Contenido
+              fields:
+
+                separador07:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes  individuales del Título</h4>'
+
+                tituloitem:
+                  type: input.text
+                  label: Título
+                  placeholder: 'Ingrese un título'
+                  default: 'Titulo Item'               
+
+                colorsubtitulos:
+                  type: input.colorpicker
+                  label: Color del título
+                  placeholder: 'Color del título'
+
+                enlace:
+                  type: input.text
+                  label: Enlace
+
+
+
+                separador08:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes de la Descripción</h4>'
+
+                descripcionitem:
+                  type: textarea.textarea
+                  label: Descripción
+
+                separador09:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes de Lista de opciones</h4>'
+
+                .iconsubfeature:
+                  type: input.icon
+                  label: Icono
+                  default: fa fa-caret-right
+
+                colorsubfeature:
+                  type: input.colorpicker
+                  label: Color del Ícono
+                  placeholder: 'Color del Ícono'
+
+                estiloiconsubfeature:
+                  type: select.select
+                  label: Estilos iconos
+                  description: Estilos iconos.
+                  placeholder: 'Seleccionar'
+                  default: sub-item-defecto 
+                  options:
+                    estilo1: Estilo 1
+                    estilo2: Estilo 2
+                    estilo3: Estilo 3
+
+                .subfeature1:
+                  type: input.text
+                  label: Sub Característica 1
+
+                .subfeature2:
+                  type: input.text
+                  label: Sub Característica 2
+
+                .subfeature3:
+                  type: input.text
+                  label: Sub Característica 3
+
+                .subfeature4:
+                  type: input.text
+                  label: Sub Característica 4
+
+                .subfeature5:
+                  type: input.text
+                  label: Sub Característica 5
+                
+
+            tab_3:
+              label: Botón
+              fields: 
+              
+                separador10:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes de Botón</h4>'
+
+                .textoboton:
+                  type: input.text
+                  label: Texto del Botón
+                  description: Ingrese el texto del botón.
+                  placeholder: 'Leér más'
+
+
+                estiloboton:
+                  type: select.select
+                  label: Estilo del botón
+                  description: Elija el Estilo del botón.
+                  placeholder: 'Seleccionar...'
+                  default: btn-primary
+                  options:
+                    btn-default: btn-default
+                    btn-primary: btn-primary 
+                    btn-success: btn-success            
+                    btn-info: btn-info
+                    btn-warning: btn-warning
+                    btn-danger: btn-danger            
+                    btn-inverse : btn-inverse 
+                    btn-link: btn-link
+
+
+                tamanoboton:
+                  type: select.select
+                  label: Tamaño del botón
+                  description: Defina  el tamaño del boton.
+                  placeholder: 'Seleccionar...'
+                  default: btn-large
+                  options:
+                    normal: Defecto
+                    btn-mini: btn-mini
+                    btn-small: btn-small
+                    btn-large: btn-large  
+
+                fullwidth:
+                  type: input.checkbox
+                  label: Anchura completa
+                  description: El botón ocupará el 100% de todo el espacio disponible.
+                  default: false
+
+
+            tab_4:
+              label: Extras
+              fields:              
+                
+                colorfondobloque:
+                  type: input.colorpicker
+                  label: Color Fondo Bloque
+                  description: Defina el color de fondo para el bloque completo.
+                  placeholder: 'Color Fondo Bloque'
+
+                colortextobloque:
+                  type: input.colorpicker
+                  label: Color Texto Bloque
+                  description: Defina el color del texto para el bloque completo.
+                  placeholder: 'Color Texto Bloque'
+
+                alineacioncontenido:
+                  type: select.select
+                  label: Alineación del texto
+                  description: Modifique la alineación del contenido (Descripción, viñetas,etc).
+                  placeholder: 'Seleccionar'
+                  default: center 
+                  options:
+                    left: Izquierda
+                    center: Centrado
+                    right: Derecha               
+
+
+
+                claseitem:
+                  type: input.selectize
+                  label: Clase CSS
+
+                extraitem:
+                  type: collection.keyvalue
+                  label: Atributos adicionales
+                  description: Ingrese atributos adicionales a la etiqueta.
+                  key_placeholder: Key (data-*, style, ...)
+                  value_placeholder: Value
+                  exclude: ['id', 'class']
+
+            tab_5:
+              label: Animaciones
+              fields:
+
+                separador11:
+                  type: separator.note
+                  class: alert alert-info
+                  content: '<h4>Ajustes de Animación con Wow.js</h4><p>Para implementar animaciones en cada bloque, usted necesita instalar y habilitar el átomo "Wow.js y Animate.css". Puedes descargarlo desde el siguiente enlace: <a href="https://github.com/aulaideal/Atomo-Animate.css-Wow.js" target="_blank">https://github.com/aulaideal/Atomo-Animate.css-Wow.js</a> </p>'
+
+
+                tipoanimacionwow:
+                  type: select.select
+                  label: Tipo de animación
+                  description: Elije el efecto de entrada.
+                  placeholder: 'Seleccionar...'
+                  default: ninguno
+                  options:
+                    ninguno: ninguno
+                    flash: flash
+                    pulse: pulse
+                    rubberBand: rubberBand
+                    shake: shake
+                    swing: swing
+                    tada: tada
+                    wobble: wobble
+                    jello: jello
+                    bounceIn: bounceIn
+                    bounceInDown: bounceInDown
+                    bounceInLeft: bounceInLeft
+                    bounceInRight: bounceInRight
+                    bounceInUp: bounceInUp
+                    bounceOut: bounceOut
+                    bounceOutDown: bounceOutDown
+                    bounceOutLeft: bounceOutLeft
+                    bounceOutRight: bounceOutRight
+                    bounceOutUp: bounceOutUp
+                    fadeIn: fadeIn
+                    fadeInDown: fadeInDown
+                    fadeInDownBig: fadeInDownBig
+                    fadeInLeft: fadeInLeft
+                    fadeInLeftBig: fadeInLeftBig
+                    fadeInRight: fadeInRight
+                    fadeInRightBig: fadeInRightBig
+                    fadeInUp: fadeInUp
+                    fadeInUpBig: fadeInUpBig
+                    fadeOut: fadeOut
+                    fadeOutDown: fadeOutDown
+                    fadeOutDownBig: fadeOutDownBig
+                    fadeOutLeft: fadeOutLeft
+                    fadeOutLeftBig: fadeOutLeftBig
+                    fadeOutRight: fadeOutRight
+                    fadeOutRightBig: fadeOutRightBig
+                    fadeOutUp: fadeOutUp
+                    fadeOutUpBig: fadeOutUpBig
+                    flip: flip
+                    flipInX: flipInX
+                    flipInY: flipInY
+                    flipOutX: flipOutX
+                    flipOutY: flipOutY
+                    lightSpeedIn: lightSpeedIn
+                    lightSpeedOut: lightSpeedOut
+                    rotateIn: rotateIn
+                    rotateInDownLeft: rotateInDownLeft
+                    rotateInDownRight: rotateInDownRight
+                    rotateInUpLeft: rotateInUpLeft
+                    rotateInUpRight: rotateInUpRight
+                    rotateOut: rotateOut
+                    rotateOutDownLeft: rotateOutDownLeft
+                    rotateOutDownRight: rotateOutDownRight
+                    rotateOutUpLeft: rotateOutUpLeft
+                    rotateOutUpRight: rotateOutUpRight
+                    slideInUp: slideInUp
+                    slideInDown: slideInDown
+                    slideInLeft: slideInLeft
+                    slideInRight: slideInRight
+                    slideOutUp: slideOutUp
+                    slideOutDown: slideOutDown
+                    slideOutLeft: slideOutLeft
+                    slideOutRight: slideOutRight
+                    zoomIn: zoomIn
+                    zoomInDown: zoomInDown
+                    zoomInLeft: zoomInLeft
+                    zoomInRight: zoomInRight
+                    zoomInUp: zoomInUp
+                    zoomOut: zoomOut
+                    zoomOutDown: zoomOutDown
+                    zoomOutLeft: zoomOutLeft
+                    zoomOutRight: zoomOutRight
+                    zoomOutUp: zoomOutUp
+                    hinge: hinge
+                    rollIn: rollIn
+                    rollOut: rollOut
+
+                datawowduration:
+                  type: input.text
+                  label: Duración
+                  description: Determina la duración de la animación.
+                  placeholder: '1'
+
+                datawowdelay:
+                  type: input.text
+                  label: Retardo
+                  description: Tiempo en segundos en que demorará la animación en aparecer.
+                  placeholder: '0'
+
+                datawowoffset:
+                  type: input.text
+                  label: Offset
+                  description: Distancia en píxeles para iniciar la animación (Entre la parte superior del bloque que se animará con la parte inferior del navegador).
+                  placeholder: '0'
+
+               

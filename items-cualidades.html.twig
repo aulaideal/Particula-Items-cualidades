@@ -1,0 +1,285 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set attr_extrageneral = '' %}
+{% if particle.extrageneral %}
+	{% for attributes in particle.extrageneral %}
+	{% for key, value in attributes %}
+	{% set attr_extrageneral = attr_extrageneral ~ ' ' ~ key|e ~ '="' ~ value|e('html_attr') ~ '"' %}
+	{% endfor %}
+	{% endfor %}
+{% endif %}
+
+
+
+{% block particle %}
+<div class="g-cualidades {{ particle.disenoparticula }}{% if particle.clasecssgeneral %} {{ particle.clasecssgeneral|e }}{% endif %}" {% if particle.extrageneral %}{{ attr_extrageneral|raw }}{% endif %}>
+	
+	{% if particle.tituloprincipal or particle.textointroduccion %}
+	<div class="g-cualidades-bloqueintro">
+
+		{% if particle.tituloprincipal %}
+		<{{ particle.etiquetatitulo }} class="g-cualidades-titulo" {% if particle.colortituloprincipal %} style="color:{{ particle.colortituloprincipal }};"{% endif %}>{{ particle.tituloprincipal|raw }}</{{ particle.etiquetatitulo }}>
+		{% endif %}
+
+		{% if particle.textointroduccion %}
+		<p class="g-cualidades-textintro" {% if particle.colortextointroduccion %} style="color:{{ particle.colortextointroduccion }};"{% endif %}>{{ particle.textointroduccion|raw }}</p>
+		{% endif %}
+	</div>
+	{% endif %}
+	
+	{% for row in particle.items|batch(particle.ncolumnas) %}
+
+	<div class="g-grid">
+		{% for item in row %}
+
+			{% set attr_extraitem = '' %}
+			{% if item.extraitem %}
+			{% for attributes in item.extraitem %}
+			{% for key, value in attributes %}
+			{% set attr_extraitem = attr_extraitem ~ ' ' ~ key|e ~ '="' ~ value|e('html_attr') ~ '"' %}
+			{% endfor %}
+			{% endfor %}
+			{% endif %}
+
+		<div class="g-block g-cualidades-item {% if particle.tituloantesdelaimagen %}primerotitulo{% endif %} {%- if item.claseitem -%} {{ item.claseitem }}{%- endif -%}"
+		{%- if item.alineacioncontenido or particle.espaciadobloque -%} style="
+			{%- if item.alineacioncontenido -%}text-align:{{ item.alineacioncontenido }}; {%- endif -%}
+			{%- if particle.espaciadobloque -%}padding:{{ particle.espaciadobloque }}; {%- endif -%}
+		"{%- endif -%}
+		 {{ attr_extraitem|raw }}>
+			<div class="g-content {% if item.tipoanimacionwow!='ninguno'%}wow {{ item.tipoanimacionwow }}{% endif %}"
+			{%- if item.colorfondobloque or item.colortextobloque -%} style="
+			{%- if item.colorfondobloque -%}background:{{ item.colorfondobloque }}; {%- endif -%}
+			{%- if item.colortextobloque -%}color:{{ item.colortextobloque }}; {%- endif -%}
+			"{%- endif -%}
+			 {%- if  item.tipoanimacionwow!='ninguno'-%}
+			 {%- if item.datawowduration and item.datawowduration!='1' -%} data-wow-duration="{{ item.datawowduration }}s"{%- endif -%}
+			 {%- endif -%}
+
+			 {%- if  item.tipoanimacionwow!='ninguno' -%}
+			 {%- if item.datawowdelay and item.datawowdelay!='0' -%} data-wow-delay="{{ item.datawowdelay }}s"{%- endif -%}
+			 {% endif -%}
+			 {%- if  item.tipoanimacionwow!='ninguno' -%}
+			 {%- if item.datawowoffset and item.datawowoffset!='0' -%} data-wow-offset="{{ item.datawowoffset }}"{%- endif -%}
+			 {% endif -%}
+			>
+			
+			{% if particle.disenoparticula=='diseno1-claro' or particle.disenoparticula=='diseno1-oscuro' or particle.disenoparticula=='diseno4-claro' or particle.disenoparticula=='diseno4-oscuro'  %}			
+			
+			{% if item.icono or item.imagenprincipal or item.tituloitem %}
+
+			{%- if item.enlace -%} <a target="{{ particle.target }}" href="{{ item.enlace }}" class="g-cualidades-link">{%- endif -%}
+				
+				{% if item.icono %}
+				<div class="{{ item.estiloicono }}"					
+					{%- if particle.margenbloquet or particle.margenbloqueb -%} style=" 
+						{%- if particle.margenbloquet -%} margin-top:{{ particle.margenbloquet }}; {%- endif -%}
+						{%- if particle.margenbloqueb -%} margin-bottom:{{ particle.margenbloqueb }}; {%- endif -%}
+					"{%- endif -%}>
+
+					<i class="hi-icon {{ item.icono|e }}"
+					{%- if particle.tamanoicono or item.coloricono or particle.tamanobloqueicono or item.colorfondoicono or particle.bordesredondeados!='' or particle.anchurabordes-%} style="
+					{%- if particle.tamanoicono -%}font-size:{{ particle.tamanoicono }}; {% endif -%}
+					{%- if item.coloricono -%} color:{{ item.coloricono }}; {%- endif -%}
+					{%- if particle.tamanobloqueicono -%} width:{{ particle.tamanobloqueicono }}; height:{{ particle.tamanobloqueicono }}; {%- endif -%}
+					{%- if item.colorfondoicono -%} background:{{ item.colorfondoicono }}; {% endif %}
+					{%- if particle.bordesredondeados!='' -%} border-radius:{{ particle.bordesredondeados }}; {%- endif -%}
+					{%- if particle.anchurabordes -%} border:{{ particle.anchurabordes }} solid; {%- endif -%}
+					{%- if particle.anchurabordes -%}{%- if particle.colorbordes -%} border-color:{{ particle.colorbordes }}; {%- endif -%}{%- endif -%}
+					"{% endif %}>
+					<span {% if item.colorfondoicono %}{% if item.disenoparticula=='hi-icon-efecto-2 hi-icon-efecto-3h' or  item.disenoparticula=='hi-icon-efecto-2 hi-icon-efecto-2h'  %} style="box-shadow: 0 0 0 4px {{ item.colorfondoicono }}";{% endif %}{% endif %}></span>
+					</i>
+				</div>
+				{% endif %}
+
+				{% if item.imagenprincipal %}
+				<figure class="g-cualidades-item-imagen {% if item.efectoimagen!='ninguno'%} {{ item.efectoimagen }}{% endif %}"
+				{%- if particle.margenbloquet!=null -%} style="margin-top:{{ particle.margenbloquet }};" {%- endif -%}>
+					<img alt="{{ item.tituloitem }}" src="{{ url(item.imagenprincipal) }}">
+				</figure>
+				{% endif %}
+
+			{%- if item.tituloitem -%}
+			<{{ particle.etiquetasubtitulo }} class="g-cualidades-item-titulo"
+			{%- if item.colorsubtitulos or particle.mtsubtitulo or particle.mbsubtitulo -%}style="
+			{%- if item.colorsubtitulos -%}color:{{ item.colorsubtitulos }};{%- endif -%}
+			{%- if particle.mtsubtitulo -%}margin-top:{{ particle.mtsubtitulo }};{%- endif -%}
+			{%- if particle.mbsubtitulo -%}margin-bottom:{{ particle.mbsubtitulo }};{%- endif -%}
+			"{%- endif -%}>{{ item.tituloitem|raw }}</{{ particle.etiquetasubtitulo }}>
+			{%- endif -%}
+			{%- if item.enlace -%}</a>{%- endif -%}
+			{%- endif -%}
+
+			{% if item.descripcionitem %}
+			<p>{{ item.descripcionitem|raw }}</p>
+			{% endif %}
+
+			{% if item.subfeature1 or item.subfeature2 or item.subfeature3 or item.subfeature4 or item.subfeature5 %}
+			<ul class="g-cualidades-subs-item">
+				{% if item.subfeature1 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature1|raw }}</li>{% endif %}
+				{% if item.subfeature2 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature2|raw }}</li>{% endif %}
+				{% if item.subfeature3 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature3|raw }}</li>{% endif %}
+				{% if item.subfeature4 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature4|raw }}</li>{% endif %}
+				{% if item.subfeature5 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature5|raw }}</li>{% endif %}
+			</ul>
+			{% endif %}
+			{% if item.textoboton %}
+			<div class="g-cualidades-item-button">
+				<a class="btn {% if particle.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
+					{{ item.textoboton|raw }}
+				</a>
+			</div>
+			{% endif %}
+			{% endif %}
+
+
+			{% if particle.disenoparticula=='diseno2-claro' or particle.disenoparticula=='diseno2-oscuro' %}
+			
+			{% if item.icono or item.imagenprincipal or item.tituloitem %}
+			<div class="diseno2-encabezado">
+
+				{%- if item.enlace -%}
+				<a target="{{ particle.target }}" href="{{ item.enlace }}" class="g-cualidades-link">
+				{%- endif -%}
+					
+					{% if item.icono %}
+					<div class="{{ item.estiloicono }}" {% if particle.tamanobloqueicono!=null %}{% if particle.margenbloquet!=null %} style="margin-top:{{ particle.margenbloquet }};" {% endif %}{% endif %}>
+						<i class="hi-icon {{ item.icono |e }}"
+						{%- if particle.tamanoicono or item.coloricono or particle.tamanobloqueicono or item.colorfondoicono or particle.bordesredondeados!='' or particle.anchurabordes-%} style="
+						{%- if particle.tamanoicono -%}font-size:{{ particle.tamanoicono }}; {% endif -%}
+						{%- if item.coloricono -%} color:{{ item.coloricono }}; {%- endif -%}
+						{%- if particle.tamanobloqueicono -%} width:{{ particle.tamanobloqueicono }}; height:{{ particle.tamanobloqueicono }}; {%- endif -%}
+						{%- if item.colorfondoicono -%} background:{{ item.colorfondoicono }}; {% endif %}
+						{%- if particle.bordesredondeados!='' -%} border-radius:{{ particle.bordesredondeados }}; {%- endif -%}
+						{%- if particle.anchurabordes -%} border:{{ particle.anchurabordes }} solid; {%- endif -%}
+						{%- if particle.anchurabordes -%}{%- if particle.colorbordes -%} border-color:{{ particle.colorbordes }}; {%- endif -%}{%- endif -%}
+						"{%- endif -%}>
+						<span {% if item.colorfondoicono %}{% if item.disenoparticula=='hi-icon-efecto-2 hi-icon-efecto-3h' or  item.disenoparticula=='hi-icon-efecto-2 hi-icon-efecto-2h'  %} style="box-shadow: 0 0 0 4px {{ item.colorfondoicono }}";{% endif %}{% endif %}></span>
+						</i>
+					</div>
+				{% endif %}
+
+				{% if item.imagenprincipal %}
+				<figure class="g-cualidades-item-imagen {% if item.efectoimagen!='ninguno'%} {{ item.efectoimagen }}{% endif %}" 
+				{%- if particle.margenbloquet!=null -%} style="margin-top:{{ particle.margenbloquet }};" {%- endif -%}>
+					<img alt="{{ item.tituloitem }}" src="{{ url(item.imagenprincipal) }}">
+				</figure>
+				{% endif %}
+
+				{%- if item.tituloitem -%}
+				<{{ particle.etiquetasubtitulo }} class="g-cualidades-item-titulo"
+				{%- if item.colorsubtitulos or particle.mtsubtitulo or particle.mbsubtitulo -%}style="
+				{%- if item.colorsubtitulos -%}color:{{ item.colorsubtitulos }};{%- endif -%}
+				{%- if particle.mtsubtitulo -%}margin-top:{{ particle.mtsubtitulo }};{%- endif -%}
+				{%- if particle.mbsubtitulo -%}margin-bottom:{{ particle.mbsubtitulo }};{%- endif -%}
+				"{%- endif -%}>
+				{{ item.tituloitem|raw }}
+				</{{ particle.etiquetasubtitulo }}>
+				{%- endif -%}
+
+
+
+				{%- if item.enlace -%}</a>{%- endif -%}
+
+			</div>
+			{% endif %}
+
+			{% if item.descripcionitem %}
+			<p>{{- item.descripcionitem|raw -}}</p>
+			{% endif %}
+			
+			{% if item.subfeature1 or item.subfeature2 or item.subfeature3 or item.subfeature4 or item.subfeature5 %}
+			<ul class="g-cualidades-subs-item">
+				{% if item.subfeature1 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature1|raw }}</li>{% endif %}
+				{% if item.subfeature2 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature2|raw }}</li>{% endif %}
+				{% if item.subfeature3 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature3|raw }}</li>{% endif %}
+				{% if item.subfeature4 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature4|raw }}</li>{% endif %}
+				{% if item.subfeature5 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature5|raw }}</li>{% endif %}
+			</ul>
+			{% endif %}
+			
+			{% if item.textoboton %}
+			<div class="g-cualidades-item-button">
+				<a class="btn {% if particle.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
+					{{- item.textoboton|raw -}}
+				</a>
+			</div>
+			{% endif %}
+
+			{% endif %}
+			{% if particle.disenoparticula=='diseno3-claro' or particle.disenoparticula=='diseno3-oscuro' %}
+			{% if item.icono or item.imagenprincipal %}
+			<div class="g-diseno3-ico">
+				{%- if item.enlace -%}
+				<a target="{{ particle.target }}" href="{{ item.enlace }}" class="g-cualidades-link">
+					{%- endif -%}
+					{% if item.icono %}					
+					<div class="{{ item.estiloicono }}" {% if particle.tamanobloqueicono!=null %}{% if particle.margenbloquet!=null %} style="margin-top:{{ particle.margenbloquet }};" {% endif %}{% endif %}>
+
+						<i class="hi-icon {{ item.icono|e }}"
+						{%- if particle.tamanoicono or item.coloricono or particle.tamanobloqueicono or item.colorfondoicono or particle.bordesredondeados!='' or particle.anchurabordes-%} style="
+						{%- if particle.tamanoicono -%}font-size:{{ particle.tamanoicono }}; {% endif -%}
+						{%- if item.coloricono -%} color:{{ item.coloricono }}; {%- endif -%}
+						{%- if particle.tamanobloqueicono -%} width:{{ particle.tamanobloqueicono }}; height:{{ particle.tamanobloqueicono }}; {%- endif -%}
+						{%- if item.colorfondoicono -%} background:{{ item.colorfondoicono }}; {% endif %}
+						{%- if particle.bordesredondeados!='' -%} border-radius:{{ particle.bordesredondeados }}; {%- endif -%}
+						{%- if particle.anchurabordes -%} border:{{ particle.anchurabordes }} solid; {%- endif -%}
+						{%- if particle.anchurabordes -%}{%- if particle.colorbordes -%} border-color:{{ particle.colorbordes }}; {%- endif -%}{%- endif -%}
+						"{%- endif -%}>
+						<span {% if item.colorfondoicono %}{% if item.disenoparticula=='hi-icon-efecto-2 hi-icon-efecto-3h' or  item.disenoparticula=='hi-icon-efecto-2 hi-icon-efecto-2h'  %} style="box-shadow: 0 0 0 4px {{ item.colorfondoicono }}";{% endif %}{% endif %}></span>
+					</i>
+				</div>
+				{% endif %}
+				{% if item.image %}
+				<figure class="g-cualidades-item-imagen {% if item.efectoimagen!='ninguno'%} {{ item.efectoimagen }}{% endif %}"
+				{%- if particle.margenbloquet!=null -%} style="margin-top:{{ particle.margenbloquet }};" {%- endif -%}>
+					<img alt="{{ item.tituloitem }}" src="{{ url(item.imagenprincipal) }}">
+				</figure>
+				{% endif %}
+				{%- if item.enlace -%}</a>{%- endif -%}
+			</div>
+			{% endif %}
+			<div class="g-diseno3-contenido">
+				{%- if item.tituloitem -%}
+				<{{ particle.etiquetasubtitulo }} class="g-cualidades-item-titulo"
+				{%- if item.colorsubtitulos or particle.mtsubtitulo or particle.mbsubtitulo -%}style="
+				{%- if item.colorsubtitulos -%}color:{{ item.colorsubtitulos }};{%- endif -%}
+				{%- if particle.mtsubtitulo -%}margin-top:{{ particle.mtsubtitulo }};{%- endif -%}
+				{%- if particle.mbsubtitulo -%}margin-bottom:{{ particle.mbsubtitulo }};{%- endif -%}
+				"{%- endif -%}>
+				{{ item.tituloitem|raw }}
+				</{{ particle.etiquetasubtitulo }}>
+				{%- endif -%}
+
+
+				{% if item.descripcionitem %}
+				<p>{{ item.descripcionitem|raw }}</p>
+				{% endif %}
+
+				{% if item.subfeature1 or item.subfeature2 or item.subfeature3 or item.subfeature4 or item.subfeature5 %}
+				<ul class="g-cualidades-subs-item">
+					{% if item.subfeature1 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature1|raw }}</li>{% endif %}
+					{% if item.subfeature2 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature2|raw }}</li>{% endif %}
+					{% if item.subfeature3 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature3|raw }}</li>{% endif %}
+					{% if item.subfeature4 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature4|raw }}</li>{% endif %}
+					{% if item.subfeature5 %}<li class="g-subs-item"><i class="g-cualidades-subitem-icon {{ item.iconsubfeature }} {% if item.estiloiconsubfeature %} {{ item.estiloiconsubfeature }} {% endif %}" {% if item.colorsubfeature %} style="color:{{ item.colorsubfeature }}"; {% endif %}> </i>{{ item.subfeature5|raw }}</li>{% endif %}
+				</ul>
+				{% endif %}
+				
+				{% if item.textoboton %}
+				<div class="g-cualidades-item-button">
+				<a class="btn {% if particle.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
+					{{- item.textoboton|raw -}}
+				</a>
+				</div>
+				{% endif %}
+
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endfor %}
+</div>
+{% endblock %}

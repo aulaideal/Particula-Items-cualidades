@@ -1,0 +1,1031 @@
+/*Estilos Generales Partícula G-cualidades*/
+
+.g-cualidades{
+
+    .g-cualidades-bloqueintro{
+    text-align: center;
+    }
+
+    .g-cualidades-item{
+    @include display(flex);	 
+    }
+
+    .g-cualidades-item .g-content,
+    .g-cualidades-item .g-cualidades-link{
+    @include display(flex);	
+    @include flex-direction(column);
+    @include flex(1);
+    padding:0;
+    }
+    .g-cualidades-item {
+        p{
+    	margin:1rem 0; 
+        }
+
+        .g-cualidades-item-titulo{
+        margin: 1.7rem 0 .5rem 0;
+        }
+
+        .g-cualidades-link {
+        @include transition(all .5s ease);
+        @include flex(0 0 auto);
+        }
+    }
+
+    /*Estilos Subs-item*/
+    .g-cualidades-subs-item{
+    margin:0 0 1rem 0;
+   
+        li{
+        list-style: none;
+        padding: .2rem 0;
+        }
+
+        li i{
+        margin-right: .5rem;
+        @include transition(all .5s ease);
+        @include display(inline-flex);
+        @include align-items(center);
+        @include justify-content(center);
+        font-size: 0.8rem;
+        position: relative;
+        left: 0;
+        }
+
+         li:hover i {
+        position: relative;
+        left: 3px;
+        }
+
+        /*Estilos Viñetas Subs-item*/
+        li i.estilo2{
+        border: 2px solid;
+        border-radius: 50%;
+        height: 1.5rem;
+        width: 1.5rem;
+        }
+        li i.estilo3 {
+        border-radius: 50%;
+        height: 1.2rem;
+        width: 1.2rem;
+        }
+    }
+
+    /*------------------------------
+    Efecto para imágenes
+    ------------------------------*/
+    .g-cualidades-item-imagen {
+    	position: relative;
+    	margin: 0;
+        padding: 0;
+        background: #fff;
+        overflow: hidden;
+        width: 100%;/*Agregado al contenedor para hacer que las imagenes se expandan al 100% cuando solo se muestra 1 o  2 imagenes por finas*/
+    }
+
+    .g-cualidades-item-imagen img {
+        width: 100%;/*Agregado  a la imagen para hacer que  se expandan al 100% cuando solo se muestra 1 o  2 imagenes por finas*/
+    }
+
+    /*Efecto imagen 1*/
+    .g-cualidades-item-imagen.efectoimg1::before {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 1;
+        display: block;
+        content: '';
+        width: 50%;
+        height: 100%;   
+        @include background(linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+     	@include transform(skewX(-25deg));
+    }
+
+    .g-cualidades-item-imagen.efectoimg1:hover::before {
+        @include animation(shine .75s);
+    }
+
+    @include keyframes(shine) {
+      100% {
+        left: 125%;
+      } 
+    }
+
+    /*Efecto imagen 2*/
+    .g-cualidades-item-imagen.efectoimg2::before{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,.2);
+        border-radius: 100%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    .g-cualidades-item-imagen.efectoimg2:hover::before {
+    	 @include animation(circle .75s);
+    }
+    @include keyframes(circle) {
+      0% {
+    		opacity: 1;
+    	}
+    	40% {
+    		opacity: 1;
+    	}
+    	100% {
+    		width: 200%;
+    		height: 200%;
+    		opacity: 0;
+    	} 
+    }
+
+    /*Efecto imagen 3*/
+    .g-cualidades-item-imagen.efectoimg3 img{
+    @include transform(scale(1));
+    @include transition(.3s ease-in-out);
+    }
+    .g-cualidades-item-imagen.efectoimg3:hover img {
+       @include transform(scale(1.2));
+    }
+
+    /*Efecto imagen 4*/
+    .g-cualidades-item-imagen.efectoimg4 img{
+    	@include filter(grayscale(100%));
+    	@include transition(.3s ease-in-out);
+
+    }
+    .g-cualidades-item-imagen.efectoimg4:hover img {
+    @include filter(grayscale(0%));
+    }
+}
+
+    /*------------------------------------------------------
+    DISEÑO 1: Diseño estandar, el icono  y en otra fila el título.
+    -------------------------------------------------------*/
+div[class*="diseno1-"] .g-cualidades-item.primerotitulo div[class*="hi-icon-efecto"]{
+order: 1;
+
+}
+div[class*="diseno1-"] .g-cualidades-item.primerotitulo .g-cualidades-item-titulo{
+order: 0;
+margin-top: 0;
+margin-bottom: 2rem;
+}
+
+
+
+/*------------------------------------------------------
+DISEÑO 2: Icono y Titulo en una sóla fila.
+-------------------------------------------------------*/
+div[class*="diseno2-"] .g-cualidades-item .diseno2-encabezado,
+div[class*="diseno2-"] .g-cualidades-item .diseno2-encabezado .g-cualidades-link {
+    @include display(flex);
+    @include align-items(center);
+    @include flex-direction(row);
+    @include justify-content(flex-start);
+    @include flex(1 1 100%);
+    text-align: left;
+
+}
+div[class*="diseno2-"] .g-cualidades-item .diseno2-encabezado .hi-icon{
+width: 2rem;
+height: 2rem;
+font-size: 1rem;
+}
+
+div[class*="diseno2-"] .g-cualidades-item .diseno2-encabezado .g-cualidades-item-titulo{
+	margin-left: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+div[class*="diseno2-"] .g-cualidades-item.primerotitulo .diseno2-encabezado .g-cualidades-item-titulo{
+  margin-left: 0;
+  margin-right: 1rem;
+
+}
+
+div[class*="diseno2-"] .g-cualidades-item.primerotitulo div[class*="hi-icon-efecto"]{
+order: 1;
+
+}
+div[class*="diseno2-"] .g-cualidades-item.primerotitulo .g-cualidades-item-titulo{
+order: 0;
+}
+
+
+/*------------------------------------------------------
+DISEÑO 3: Icono en una columna y contenido en otra.
+-------------------------------------------------------*/
+div[class*="diseno3-"] .g-cualidades-item .g-content {
+display: flex;
+@include flex-direction(row);
+}
+
+div[class*="diseno3-"] .g-cualidades-item .g-diseno3-ico .hi-icon{
+width: 3rem;
+height: 3rem;
+font-size: 1rem;
+}
+
+div[class*="diseno3-"] .g-cualidades-item .g-content .g-diseno3-contenido{
+margin-left: 1rem;
+}
+div[class*="diseno3-"] .g-cualidades-item.primerotitulo .g-content .g-diseno3-contenido{
+margin-left: 0rem;
+margin-right: 1rem;
+}
+
+div[class*="diseno3-"] .g-cualidades-item .g-cualidades-item-titulo{
+margin: 0 0 0.5rem 0;
+}
+
+div[class*="diseno3-"] .g-cualidades-item.primerotitulo .g-diseno3-ico{
+order: 1;
+
+}
+div[class*="diseno3-"] .g-cualidades-item.primerotitulo .g-diseno3-contenidoo{
+order: 0;
+}
+
+
+/*------------------------------------------------------
+DISEÑO 4: Con Border e Icono arriba.
+-------------------------------------------------------*/
+
+/*Diseño oscuro*/
+div.diseno4-oscuro .g-cualidades-item .g-content {
+    border:1px solid rgba(255, 255, 255, 0.5);
+    border-radius: .2rem;
+    margin-top: 3.5rem;
+    @include transition(all .5s ease);
+}
+div.diseno4-oscuro .g-cualidades-item .g-content:hover {
+    border: 1px solid #ffffff;
+
+}
+
+div.diseno4-oscuro .g-cualidades-item .g-content div[class*="hi-icon-efecto"]{
+margin-top: -4rem;
+}
+
+/*Diseño Claro*/
+div.diseno4-claro .g-cualidades-item .g-content {
+    border: 1px solid #ccc;
+    border-radius: .2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.04) inset;
+    @include transition(all .5s ease);
+    margin-top: 3.5rem;
+}
+div.diseno4-claro .g-cualidades-item .g-content:hover {
+    border: 1px solid $accent-color-1;
+}
+div.diseno4-claro .g-cualidades-item .g-content div[class*="hi-icon-efecto"]{
+margin-top: -4rem;
+}
+
+/*--------------------------------------------------------
+ESTILOS GENERALES FONDO OSCURO
+--------------------------------------------------------*/
+.g-cualidades.diseno1-oscuro .g-cualidades-item,
+.g-cualidades.diseno2-oscuro .g-cualidades-item,
+.g-cualidades.diseno3-oscuro .g-cualidades-item,
+.g-cualidades.diseno4-oscuro .g-cualidades-item{
+color: #efefef;
+}
+
+/* Texto Título principal */
+.g-cualidades.diseno1-oscuro .g-cualidades-titulo,
+.g-cualidades.diseno2-oscuro .g-cualidades-titulo,
+.g-cualidades.diseno3-oscuro .g-cualidades-titulo,
+.g-cualidades.diseno4-oscuro .g-cualidades-titulo{
+color: #fff;
+margin-bottom: 1.5rem;
+}
+/* Texto descripción principal */
+.g-cualidades.diseno1-oscuro .g-cualidades-bloqueintro p,
+.g-cualidades.diseno2-oscuro .g-cualidades-bloqueintro p,
+.g-cualidades.diseno3-oscuro .g-cualidades-bloqueintro p,
+.g-cualidades.diseno4-oscuro .g-cualidades-bloqueintro p{
+color: #efefef;
+}
+
+
+.g-cualidades.diseno1-oscuro .g-cualidades-item .g-cualidades-item-titulo,
+.g-cualidades.diseno2-oscuro .g-cualidades-item .g-cualidades-item-titulo,
+.g-cualidades.diseno3-oscuro .g-cualidades-item .g-cualidades-item-titulo,
+.g-cualidades.diseno4-oscuro .g-cualidades-item .g-cualidades-item-titulo{
+color: #fff;
+}
+/*Estilo 1 Viñetas fondo Oscuro */
+.g-cualidades.diseno1-oscuro .g-cualidades-subs-item li i.estilo1,
+.g-cualidades.diseno2-oscuro .g-cualidades-subs-item li i.estilo1,
+.g-cualidades.diseno3-oscuro .g-cualidades-subs-item li i.estilo1,
+.g-cualidades.diseno4-oscuro .g-cualidades-subs-item li i.estilo1{
+color:#fff;
+}
+/*Estilo 3 Viñetas fondo Oscuro */
+.g-cualidades.diseno1-oscuro .g-cualidades-subs-item li i.estilo3,
+.g-cualidades.diseno2-oscuro .g-cualidades-subs-item li i.estilo3,
+.g-cualidades.diseno3-oscuro .g-cualidades-subs-item li i.estilo3,
+.g-cualidades.diseno4-oscuro .g-cualidades-subs-item li i.estilo3{
+color:$accent-color-1;
+background: #ffffff;
+}
+
+
+/*--------------------------------------------------------
+ESTILOS GENERALES FONDO CLARO
+--------------------------------------------------------*/
+/* Texto general */
+.g-cualidades.diseno1-claro .g-cualidades-item,
+.g-cualidades.diseno2-claro .g-cualidades-item,
+.g-cualidades.diseno3-claro .g-cualidades-item,
+.g-cualidades.diseno4-claro .g-cualidades-item{
+color: $base-text-color;
+}
+/* Texto Título principal */
+.g-cualidades.diseno1-claro .g-cualidades-titulo,
+.g-cualidades.diseno2-claro .g-cualidades-titulo,
+.g-cualidades.diseno3-claro .g-cualidades-titulo,
+.g-cualidades.diseno4-claro .g-cualidades-titulo {
+color:$accent-color-1;
+margin-bottom: 1.5rem;
+}
+/* Texto descripción principal */
+.g-cualidades.diseno1-claro .g-cualidades-bloqueintro p,
+.g-cualidades.diseno2-claro .g-cualidades-bloqueintro p,
+.g-cualidades.diseno3-claro .g-cualidades-bloqueintro p,
+.g-cualidades.diseno4-claro .g-cualidades-bloqueintro p{
+color: $base-text-color;
+}
+
+
+/* Título de cada item */
+.g-cualidades.diseno1-claro .g-cualidades-item .g-cualidades-item-titulo,
+.g-cualidades.diseno2-claro .g-cualidades-item .g-cualidades-item-titulo,
+.g-cualidades.diseno3-claro .g-cualidades-item .g-cualidades-item-titulo,
+.g-cualidades.diseno4-claro .g-cualidades-item .g-cualidades-item-titulo{
+color: $accent-color-1;
+}
+/*Estilo 1 Viñetas fondo Claro */
+.g-cualidades.diseno1-claro .g-cualidades-subs-item li i.estilo1,
+.g-cualidades.diseno2-claro .g-cualidades-subs-item li i.estilo1,
+.g-cualidades.diseno3-claro .g-cualidades-subs-item li i.estilo1,
+.g-cualidades.diseno4-claro .g-cualidades-subs-item li i.estilo1{
+color:$accent-color-1;
+}
+/*Estilo 3 Viñetas fondo Claro */
+.g-cualidades.diseno1-claro .g-cualidades-subs-item li i.estilo3,
+.g-cualidades.diseno2-claro .g-cualidades-subs-item li i.estilo3,
+.g-cualidades.diseno3-claro .g-cualidades-subs-item li i.estilo3,
+.g-cualidades.diseno4-claro .g-cualidades-subs-item li i.estilo3{
+color: #ffffff;
+background: $accent-color-1;
+}
+
+/*Estilo Botones*/
+.g-cualidades-item-button{
+	margin-top: auto;
+}
+
+
+/*-------------------------------------------------
+ESTILO ANIMACIONES DE ICONOS
+------------------------------------------------- */
+/*Estilos generales de iconos*/
+.hi-icon {
+@include display(inline-flex);
+@include align-items(center);
+@include justify-content(center);
+font-size: 3rem;
+width: 6rem;
+height: 6rem;
+border-radius: 50%;
+text-align: center;
+position: relative;
+z-index: 1;
+color: #fff;
+}
+.hi-icon:before  {
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+display: block;
+-webkit-font-smoothing: antialiased;
+}
+.hi-icon span {
+pointer-events: none;
+position: absolute;
+width: 100%;
+height: 100%;
+border-radius: 50%;
+@include box-sizing(content-box);
+@include transition(all .5s ease);
+}
+
+
+
+/*-------------------------------------
+EFECTO NINGUNO
+-------------------------------------*/
+/* Estilo ninguno Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-ninguno .hi-icon {
+color: #fff;
+background: $accent-color-1;
+}
+div[class*="-oscuro"].hi-icon-efecto-ninguno .hi-icon span {
+opacity: 0;
+}
+/* Efecto ninguno Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-ninguno .hi-icon {
+color: $accent-color-1;
+background:#fff;
+}
+div[class*="-claro"] .hi-icon-efecto-ninguno .hi-icon span {
+opacity: 0;
+}
+
+
+/*-------------------------------------
+EFECTO ICONOS 1
+-------------------------------------*/
+/* Estilo 1 Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-1 .hi-icon {
+color: $accent-color-1;
+background:#fff;
+@include transition(all 0.5s ease);
+}
+div[class*="-oscuro"] .hi-icon-efecto-1 .hi-icon span {
+opacity: 0;
+}
+/* Efecto 1 hover Icono Oscuro y Claro */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-1 .hi-icon,
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-1 .hi-icon{
+ @include transform(rotateY(180deg));
+}
+/* Efecto 1 Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-1 .hi-icon {
+background:#fff;
+color: $accent-color-1;
+@include transition(all 0.5s ease);
+}
+div[class*="-claro"] .hi-icon-efecto-1 .hi-icon span {
+opacity: 0;
+}
+
+/*-------------------------------------
+EFECTO ICONOS 2
+-------------------------------------*/
+/* Efecto 2 Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-2 .hi-icon {
+background: rgba(255,255,255,1);
+color:$accent-color-1;
+@include transition(background 0.2s, color 0.2s);
+}
+div[class*="-oscuro"] .hi-icon-efecto-2 .hi-icon span {
+top: -7px;
+left: -7px;
+padding: 7px;
+box-shadow: 0 0 0 4px #fff;
+@include transition(transform 0.2s, opacity 0.2s);
+@include transform(scale(.8));
+opacity: 0;
+}
+/* Efecto 2 Hover Oscuro para Efecto 2 */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-2h .hi-icon {
+color: $accent-color-1;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-2h .hi-icon span {
+@include transform(scale(1));
+opacity: 1;
+}
+/* Efecto 2 Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-2 .hi-icon {
+background: $accent-color-1;
+color:#fff;
+@include transition(background 0.2s, color 0.2s);
+
+}
+div[class*="-claro"] .hi-icon-efecto-2 .hi-icon span {
+top: -7px;
+left: -7px;
+padding: 7px;
+box-shadow: 0 0 0 4px $accent-color-1;
+@include transition(transform 0.2s, opacity 0.2s);
+@include transform(scale(.8));
+opacity: 0;
+}
+/* Efecto 2 Hover Claro para Efecto 2 */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-2h .hi-icon {
+color: #ffffff;
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-2h .hi-icon span {
+@include transform(scale(1));
+opacity: 1;
+}
+/*-------------------------------------
+EFECTO ICONOS 3
+-------------------------------------*/
+/* Efecto 3 Hover Oscuro para Efecto 2 */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-3h .hi-icon {
+background: rgba(255,255,255,1);
+color: $accent-color-1;
+}
+div[class*="-oscuro"] .hi-icon-efecto-3h .hi-icon span {
+@include transform(scale(1.2));
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-3h .hi-icon span {
+@include transform(scale(1));
+opacity: 1;
+}
+/* Efecto 3 Hover Claro para Efecto 2 */
+div[class*="-claro"] .hi-icon-efecto-3h .hi-icon span {
+@include transform(scale(1.2));
+}
+div[class*="-claro"] .g-cualidades-item:hover  .hi-icon-efecto-3h .hi-icon span {
+@include transform(scale(1));
+opacity: 1;
+}
+
+/*-------------------------------------
+EFECTO ICONOS 4
+-------------------------------------*/
+/* Efecto 4  Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-4 .hi-icon {
+background: rgba(255,255,255,1);
+color: $accent-color-1;
+@include transition(ease-out 0.1s, background 0.2s);
+}
+div[class*="-oscuro"] .hi-icon-efecto-4 .hi-icon span{
+top: 0;
+left: 0;
+padding: 0;
+z-index: -1;
+box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+opacity: 0;
+@include transform(scale(0.9));
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-4 .hi-icon {
+background: #fff;
+@include transform(scale(0.9));
+color: $accent-color-1;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-4 .hi-icon span {
+@include animation(sonarEffect_oscuro 1.3s ease-out 75ms  infinite);
+}
+
+/* Efecto 15  Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-4 .hi-icon {
+background: $accent-color-1;
+@include transition(ease-out 0.1s, background 0.2s);
+}
+div[class*="-claro"] .hi-icon-efecto-4 .hi-icon span{
+top: 0;
+left: 0;
+padding: 0;
+z-index: -1;
+box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+opacity: 0;
+@include transform(scale(0.9));
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-4 .hi-icon {
+background: $accent-color-1 !important;
+@include transform(scale(0.93));
+color: #fff;
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-4 .hi-icon span {
+@include animation(sonarEffect_claro 1.3s ease-out 75ms  infinite);
+}
+@include keyframes(sonarEffect_oscuro) {
+  0% {
+   opacity: 0.3;
+  }
+  40% {
+  	opacity: 0.5;
+   box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 10px rgba(255,255,255,0.1);
+  }
+   100% {
+   	box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px $accent-color-1, 0 0 0 10px rgba(255,255,255,0.5);
+  @include transform(scale(1.3));
+  opacity: 0;
+  }
+}
+
+@include keyframes(sonarEffect_claro) {
+  0% {
+   opacity: 0.3;
+  }
+  40% {
+  	opacity: 0.5;
+   box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px $accent-color-1, 0 0 0 10px rgba(255,255,255,0.5);
+  }
+   100% {
+   	box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px $accent-color-1, 0 0 0 10px rgba(255,255,255,0.5);
+  @include transform(scale(1.3));
+  opacity: 0;
+  }
+}
+
+
+/*-------------------------------------
+EFECTO ICONOS 5
+-------------------------------------*/
+/* Efecto 5 Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-5 .hi-icon {
+background: $accent-color-1;
+color: #fff;
+box-shadow: 0 0 0 3px #fff;
+@include transition(color 0.3s);
+}
+div[class*="-oscuro"] .hi-icon-efecto-5 .hi-icon span {
+top: -2px;
+left: -2px;
+padding: 2px;
+z-index: -1;
+background: #fff;
+@include transition(transform 0.2s, opacity 0.2s);
+@include transform(scale(0));
+
+}
+/* Efecto 5 Hover Oscuro para Efecto 5 */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-5h .hi-icon span{
+@include transform(scale(1));
+@include transition(transform 0.4s, opacity 0.2s);
+opacity: 1;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-5h .hi-icon {
+color: $accent-color-1;
+}
+
+
+/* Efecto 5 Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-5 .hi-icon {
+color: #ffffff;
+box-shadow: 0 0 0 3px $accent-color-1;
+background: $accent-color-1;
+@include transition(color 0.3s);
+}
+
+div[class*="-claro"] .hi-icon-efecto-5 .hi-icon span {
+top: -2px;
+left: -2px;
+padding: 2px;
+z-index: -1;
+background: $accent-color-1;
+@include transform(scale(0));
+@include transition(all .5s );
+}
+
+/* Efecto 5 Hover Claro para Efecto 4 */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-5h .hi-icon span{
+@include transform(scale(1));
+opacity: 1;
+background: #fff;
+}
+div[class*="-claro"] .g-cualidades-item:hover  .hi-icon-efecto-5h .hi-icon {
+color: $accent-color-1;
+}
+
+
+/*-------------------------------------
+EFECTO ICONOS 6
+-------------------------------------*/
+/* Efecto 6 Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-6 .hi-icon {
+color: $accent-color-1;
+box-shadow: 0 0 0 3px #fff;
+background:#fff;
+@include transition(color 0.5s);
+}
+div[class*="-oscuro"] .hi-icon-efecto-6 .hi-icon span{
+top: -2px;
+left: -2px;
+padding: 2px;
+z-index: -1;
+
+box-shadow: 0 0 0 3px #fff;
+@include transition(transform 0.5s, opacity 0.6s);
+}
+/* Efecto 6 Hover Oscuro para Efecto 6 */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-6h .hi-icon{
+    color: #ffffff;
+    background: $accent-color-1;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-6h .hi-icon span {
+@include transform(scale(1.4));
+opacity: 0;
+}
+/* Efecto 6 Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-6 .hi-icon {
+color: #fff;
+box-shadow: 0 0 0 3px $accent-color-1;
+background: $accent-color-1;
+@include transition( color 0.5s);
+}
+div[class*="-claro"] .hi-icon-efecto-6 .hi-icon span{
+top: -2px;
+left: -2px;
+padding: 2px;
+z-index: -1;
+box-shadow: 0 0 0 3px $accent-color-1;
+@include transition(transform 0.5s, opacity 0.6s);
+}
+/* Efecto 6 Hover claro para Efecto 6 */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-6h .hi-icon {
+color:#fff;
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-6h .hi-icon span {
+@include transform(scale(1.4));
+opacity: 0;
+}
+/*-------------------------------------
+EFECTO ICONOS 7
+-------------------------------------*/
+/* Efecto 7 Hover Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-7h .hi-icon {
+color: $accent-color-1;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-7h .hi-icon{
+color: $accent-color-1;
+}
+div[class*="-oscuro"] .hi-icon-efecto-7h .hi-icon span{
+@include transform(scale(1.4));
+opacity: 0;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-7h .hi-icon span {
+@include transform(scale(1));
+opacity: 1;
+}
+/* Efecto 7 Hover Claro */
+
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-7h .hi-icon {
+background: lighten($accent-color-1, 10% );
+color: #fff;
+}
+div[class*="-claro"] .hi-icon-efecto-7h .hi-icon span{
+@include transform(scale(1.4));
+opacity: 0;
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-7h .hi-icon span {
+@include transform(scale(1));
+opacity: 1;
+}
+/*-------------------------------------
+EFECTO ICONOS 8
+-------------------------------------*/
+/* Efecto 8 Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-8 .hi-icon {
+background:$accent-color-1;
+box-shadow: 0 0 0 4px rgba(255,255,255,1);
+@include transition(all 0.5s);
+}
+div[class*="-oscuro"] .hi-icon-efecto-8 .hi-icon {
+@include transition(box-shadow 0.5s);
+}
+
+div[class*="-oscuro"] .hi-icon-efecto-8 .hi-icon span{
+top: -4px;
+left: -4px;
+padding: 0;
+z-index: 10;
+border: 4px dashed #fff;
+}
+/* Efecto 8 Hover Oscuro */
+div[class*="-oscuro"] .g-cualidades-item:hover  .hi-icon-efecto-8 .hi-icon {
+box-shadow: 0 0 0 0 rgba(255,255,255,0);
+color: #fff;
+}
+/* Efecto 8 Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-8 .hi-icon {
+	background: #fff;
+box-shadow: 0 0 0 4px $accent-color-1;
+color:$accent-color-1;
+@include transition(all 0.5s);
+}
+div[class*="-claro"] .hi-icon-efecto-8 .hi-icon {
+@include transition(box-shadow 0.5s);
+}
+
+div[class*="-claro"] .hi-icon-efecto-8 .hi-icon span{
+top: -4px;
+left: -4px;
+padding: 0;
+z-index: 10;
+border: 4px dashed $accent-color-1;
+}
+/* Efecto 8 Hover claro */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-8 .hi-icon {
+box-shadow: 0 0 0 0 rgba(255,255,255,0);
+color:$accent-color-1;
+}
+/*-------------------------------------
+EFECTO ICONOS 9
+-------------------------------------*/
+/* Efecto 9 hover Icono Oscuro */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-9h .hi-icon {
+@include transition(box-shadow 0.2s);
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-9h .hi-icon span {
+ @include animation(spinAround 9s linear infinite);
+}
+/* Efecto 9 hover Icono Claro */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-9h .hi-icon {
+@include transition(box-shadow 0.2s);
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-9h .hi-icon span {
+ @include animation(spinAround 9s linear infinite);
+}
+@include keyframes(spinAround) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+/*-------------------------------------
+EFECTO ICONOS 10
+-------------------------------------*/
+/* Efecto 10  Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-10 .hi-icon {
+background:$accent-color-1;
+box-shadow: 0 0 0 4px rgba(255,255,255,1);
+overflow: hidden;
+@include transition(background 0.5s, color 0.5s, box-shadow 0.3s);
+}
+div[class*="-oscuro"] .hi-icon-efecto-10 span{
+display: none;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-10 .hi-icon {
+box-shadow: 0 0 0 8px rgba(255,255,255,0.9);
+}
+div[class*="-oscuro"].g-cualidades-item:hover  .hi-icon-efecto-10h .hi-icon:before {
+@include animation(toRightFromLeft 0.5s forwards);
+}
+/* Efecto 10  Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-10 .hi-icon {
+background:$accent-color-1;
+box-shadow:0 0 0 4px rgba(204, 204, 204, 0.9);
+color:#ffffff;
+overflow: hidden;
+@include transition(background 0.5s, color 0.5s, box-shadow 0.3s);
+}
+div[class*="-claro"] .hi-icon-efecto-10 span{
+display: none;
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-10 .hi-icon {
+box-shadow: 0 0 0 8px rgb(238, 238, 238);
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-10h .hi-icon:before {
+@include animation(toRightFromLeft 0.5s forwards);
+}
+@include keyframes(toRightFromLeft) {
+  49% {
+    @include transform(translate(100%));
+  }
+  50% {
+  	opacity: 0;
+    @include transform(translate(-100%));
+  }
+   51% {
+   opacity: 1;
+  }
+}
+
+/*-------------------------------------
+EFECTO ICONOS 11
+-------------------------------------*/
+/* Efecto 11  Icono Oscuro */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-11h .hi-icon:before {
+@include animation(toLeftFromRight 0.3s forwards);
+}
+/* Efecto 11  Icono Claro */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-11h .hi-icon:before {
+@include animation(toLeftFromRight 0.3s forwards);
+}
+@include keyframes(toLeftFromRight) {
+  49% {
+    @include transform(translate(-100%));
+  }
+  50% {
+  	opacity: 0;
+    @include transform(translate(100%));
+  }
+   51% {
+   opacity: 1;
+  }
+}
+
+/*-------------------------------------
+EFECTO ICONOS 12
+-------------------------------------*/
+/* Efecto 12  Icono Oscuro y  Claro */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-12h .hi-icon:before,
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-12h .hi-icon:before{
+@include animation(toTopFromBottom 0.5s forwards);
+}
+@include keyframes(toTopFromBottom) {
+  49% {
+    @include transform(translateY(-100%));
+  }
+  50% {
+  	opacity: 0;
+    @include transform(translateY(100%));
+  }
+   51% {
+   opacity: 1;
+  }
+}
+
+/*-------------------------------------
+EFECTO ICONOS 13
+-------------------------------------*/
+/* Efecto 13 Icono Oscuro y Claro */
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-13h .hi-icon:before,
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-13h .hi-icon:before{
+@include animation(toBottomFromTop 0.3s forwards);
+}
+@include keyframes(toBottomFromTop) {
+  49% {
+    @include transform(translateY(100%));
+  }
+  50% {
+  	opacity: 0;
+    @include transform(translateY(-100%));
+  }
+   51% {
+   opacity: 1;
+  }
+}
+
+/*-------------------------------------
+EFECTO ICONOS 14
+-------------------------------------*/
+/* Efecto 14  Icono Oscuro */
+div[class*="-oscuro"] .hi-icon-efecto-14 .hi-icon {
+background: $accent-color-1;
+box-shadow: 0 0 0 4px rgba(255,255,255,1);
+@include transition(background 0.2s, color 0.2s);
+
+}
+/* Efecto 14 hover Icono Oscuro */
+div[class*="-oscuro"].g-cualidades-item:hover .hi-icon-efecto-14 .hi-icon{
+background: rgba(255,255,255,1) !important;
+color: $accent-color-1;
+}
+div[class*="-oscuro"] .g-cualidades-item:hover .hi-icon-efecto-14 .hi-icon:before {
+@include animation(binban 1s linear infinite);
+}
+
+/* Efecto 14  Icono Claro */
+div[class*="-claro"] .hi-icon-efecto-14 .hi-icon {
+background: #fff;
+box-shadow: 0 0 0 4px $accent-color-1;
+color: $accent-color-1;
+@include transition(background 0.2s, color 0.2s);
+}
+/* Efecto 14 hover Icono Claro */
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-14 .hi-icon{
+background: $accent-color-1 !important;
+color: rgba(255,255,255,1);
+}
+div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-14 .hi-icon:before {
+@include animation(binban 1s linear infinite);
+}
+@include keyframes(binban) {
+  0% {
+    @include transform(scale(1));
+  }
+  50% {
+    @include transform(scale(0.7) rotate(5deg));
+  }
+   100% {
+  @include transform(scale(1));
+  }
+}
+
+/*-------------------------------------------
+MEDIAS QUERIES
+------------------------------------------*/
+@media all and (max-width: $breakpoints-desktop-container) {
+ .g-cualidades .g-cualidades-item{
+   padding: 0 !important;
+  }
+}
+
+@media all and (max-width:$breakpoints-tablet-container) {
+ .g-cualidades .g-cualidades-item .g-content,
+ .g-cualidades .g-cualidades-item .g-cualidades-link {
+@include align-items(center);
+}
+}
