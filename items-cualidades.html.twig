@@ -14,18 +14,12 @@
 {% block particle %}
 <div class="g-cualidades {{ particle.disenoparticula }}{% if particle.clasecssgeneral %} {{ particle.clasecssgeneral|e }}{% endif %}" {% if particle.extrageneral %}{{ attr_extrageneral|raw }}{% endif %}>
 	
-	{% if particle.tituloprincipal or particle.textointroduccion %}
 	<div class="g-cualidades-bloqueintro">
-
 		{% if particle.tituloprincipal %}
-		<{{ particle.etiquetatitulo }} class="g-cualidades-titulo" {% if particle.colortituloprincipal %} style="color:{{ particle.colortituloprincipal }};"{% endif %}>{{ particle.tituloprincipal|raw }}</{{ particle.etiquetatitulo }}>
-		{% endif %}
-
-		{% if particle.textointroduccion %}
-		<p class="g-cualidades-textintro" {% if particle.colortextointroduccion %} style="color:{{ particle.colortextointroduccion }};"{% endif %}>{{ particle.textointroduccion|raw }}</p>
-		{% endif %}
+		<{{ particle.etiquetatitulo }} class="g-cualidades-titulo">{{ particle.tituloprincipal|raw }}</{{ particle.etiquetatitulo }}>
+		{% endif %}		
 	</div>
-	{% endif %}
+
 	
 	{% for row in particle.items|batch(particle.ncolumnas) %}
 

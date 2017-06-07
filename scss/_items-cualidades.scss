@@ -19,7 +19,7 @@
     }
     .g-cualidades-item {
         p{
-    	margin:1rem 0; 
+    	margin:auto 0 1rem; 
         }
 
         .g-cualidades-item-titulo{
@@ -29,6 +29,7 @@
         .g-cualidades-link {
         @include transition(all .5s ease);
         @include flex(0 0 auto);
+        text-decoration: none;
         }
     }
 
@@ -123,8 +124,7 @@
         height: 0;
         background: rgba(255,255,255,.2);
         border-radius: 100%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        @include transform(translate(-50%, -50%));
         opacity: 0;
     }
 
@@ -165,15 +165,16 @@
     }
 }
 
-    /*------------------------------------------------------
+    /*-----------------------------------------------------------
     DISEÑO 1: Diseño estandar, el icono  y en otra fila el título.
-    -------------------------------------------------------*/
+    ------------------------------------------------------------*/
 div[class*="diseno1-"] .g-cualidades-item.primerotitulo div[class*="hi-icon-efecto"]{
-order: 1;
+@include order(1);
+
 
 }
 div[class*="diseno1-"] .g-cualidades-item.primerotitulo .g-cualidades-item-titulo{
-order: 0;
+@include order(-1);
 margin-top: 0;
 margin-bottom: 2rem;
 }
@@ -212,11 +213,11 @@ div[class*="diseno2-"] .g-cualidades-item.primerotitulo .diseno2-encabezado .g-c
 }
 
 div[class*="diseno2-"] .g-cualidades-item.primerotitulo div[class*="hi-icon-efecto"]{
-order: 1;
+@include order(1);
 
 }
 div[class*="diseno2-"] .g-cualidades-item.primerotitulo .g-cualidades-item-titulo{
-order: 0;
+@include order(0);
 }
 
 
@@ -224,7 +225,7 @@ order: 0;
 DISEÑO 3: Icono en una columna y contenido en otra.
 -------------------------------------------------------*/
 div[class*="diseno3-"] .g-cualidades-item .g-content {
-display: flex;
+@include display(flex);
 @include flex-direction(row);
 }
 
@@ -247,11 +248,12 @@ margin: 0 0 0.5rem 0;
 }
 
 div[class*="diseno3-"] .g-cualidades-item.primerotitulo .g-diseno3-ico{
-order: 1;
+@include order(1);
+
 
 }
 div[class*="diseno3-"] .g-cualidades-item.primerotitulo .g-diseno3-contenidoo{
-order: 0;
+@include order(0);
 }
 
 
@@ -420,7 +422,6 @@ font-weight: normal;
 font-variant: normal;
 text-transform: none;
 display: block;
--webkit-font-smoothing: antialiased;
 }
 .hi-icon span {
 pointer-events: none;
@@ -1018,14 +1019,14 @@ div[class*="-claro"] .g-cualidades-item:hover .hi-icon-efecto-14 .hi-icon:before
 MEDIAS QUERIES
 ------------------------------------------*/
 @media all and (max-width: $breakpoints-desktop-container) {
- .g-cualidades .g-cualidades-item{
-   padding: 0 !important;
-  }
+     .g-cualidades .g-cualidades-item{
+       padding: 0 !important;
+      }
 }
 
 @media all and (max-width:$breakpoints-tablet-container) {
- .g-cualidades .g-cualidades-item .g-content,
- .g-cualidades .g-cualidades-item .g-cualidades-link {
-@include align-items(center);
-}
+     .g-cualidades .g-cualidades-item .g-content,
+     .g-cualidades .g-cualidades-item .g-cualidades-link {
+     @include align-items(center);
+      }
 }

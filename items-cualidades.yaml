@@ -1,5 +1,5 @@
 name: Items Cualidades
-description: Particula que nos permite mostrar elementos con diferentes opciones de configuración (Título, ícono, descripción, boton de accción, etc).
+description: Particula que nos permite mostrar elementos con diferentes opciones de configuración (Título, icono, descripción, botón de accción, etc).
 type: particle
 
 configuration:
@@ -40,21 +40,6 @@ form:
         h5: H5
         h6: H6
 
-    colortituloprincipal:
-      type: input.colorpicker
-      label: Color Título
-
-    textointroduccion:
-      type: textarea.textarea
-      label: Texto de Introducción
-      description: Escribe el texto de introducción de la partícula.
-      placeholder: 'Escribe el texto de introducción'
-      default: 'Mi texto de introducción'
-
-
-    colortextointroduccion:
-      type: input.colorpicker
-      label: Color introducción
 
     separador02:
       type: separator.note
@@ -116,12 +101,12 @@ form:
     separador03:
       type: separator.note
       class: alert alert-info
-      content: '<h4>Ajustes generales de los Íconos</h4>'
+      content: '<h4>Ajustes generales de los iconos</h4>'
 
 
     tamanoicono:
       type: input.text
-      label: Tamaño ícono
+      label: Tamaño icono
       description: 'Recomendaciones: <br/> Diseño 1: 4rem (Recomend), <br /> Diseño 2: 1.5rem (Recomend)'
       placeholder: '3rem'
       
@@ -130,8 +115,7 @@ form:
       type: input.text
       label: Tamaño del Bloque
       description: 'Recomendaciones: <br/> Diseño 1: 6rem (Recomend), <br /> Diseño 2: 2.5rem (Recomend)'
-      placeholder: '6rem'
-      default: '6rem'
+      placeholder: '2rem'
 
     bordesredondeados:
       type: input.text
@@ -194,7 +178,7 @@ form:
 
     tituloantesdelaimagen:
       type: input.checkbox
-      label: ¿Título antes del icono?
+      label: ¿Título antes del icono/imagen?
       description: Marcando esta opción  se mostrará el título antes de la imagen. 
       default: false
 
@@ -223,18 +207,18 @@ form:
           type: container.tabs
           fields:
             tab_1:
-              label: Ícono e Imagen
+              label: Icono e Imagen
               fields:   
 
                 separador05:
                   type: separator.note
                   class: alert alert-info
-                  content: '<h4>Ajustes individuales del Ícono</h4>'
+                  content: '<h4>Ajustes individuales del icono</h4>'
 
                 estiloicono:
                   type: select.select
-                  label: Efecto de íconos
-                  description: Seleccione el estilo que definirá el diseño de los ícono. 
+                  label: Efecto de iconos
+                  description: Seleccione el estilo que definirá el diseño de los iconos. 
                   placeholder: 'Seleccionar...'
                   default: hi-icon-efecto-1
                   options:        
@@ -260,13 +244,13 @@ form:
 
                 coloricono:
                   type: input.colorpicker
-                  label: Color del Ícono
-                  placeholder: 'Color del Ícono'
+                  label: Color del icono
+                  placeholder: 'Color del icono'
 
                 colorfondoicono:
                   type: input.colorpicker
-                  label: Color Fondo Ícono
-                  placeholder: 'Color de Fondo del Ícono'
+                  label: Color fondo icono
+                  placeholder: 'Color de Fondo del icono'
                   
 
                 separador06:
@@ -340,8 +324,8 @@ form:
 
                 colorsubfeature:
                   type: input.colorpicker
-                  label: Color del Ícono
-                  placeholder: 'Color del Ícono'
+                  label: Color del icono
+                  placeholder: 'Color del icono'
 
                 estiloiconsubfeature:
                   type: select.select
