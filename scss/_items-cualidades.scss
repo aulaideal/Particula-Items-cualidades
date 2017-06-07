@@ -16,6 +16,7 @@
     @include flex-direction(column);
     @include flex(1);
     padding:0;
+    overflow: hidden;
     }
     .g-cualidades-item {
         p{
@@ -76,6 +77,7 @@
     Efecto para imágenes
     ------------------------------*/
     .g-cualidades-item-imagen {
+        display: block;
     	position: relative;
     	margin: 0;
         padding: 0;
@@ -102,7 +104,7 @@
      	@include transform(skewX(-25deg));
     }
 
-    .g-cualidades-item-imagen.efectoimg1:hover::before {
+    .g-cualidades-link:hover .g-cualidades-item-imagen.efectoimg1::before {
         @include animation(shine .75s);
     }
 
@@ -128,7 +130,7 @@
         opacity: 0;
     }
 
-    .g-cualidades-item-imagen.efectoimg2:hover::before {
+    .g-cualidades-link:hover .g-cualidades-item-imagen.efectoimg2::before {
     	 @include animation(circle .75s);
     }
     @include keyframes(circle) {
@@ -139,8 +141,8 @@
     		opacity: 1;
     	}
     	100% {
-    		width: 200%;
-    		height: 200%;
+    		width: 150%;
+    		height: 150%;
     		opacity: 0;
     	} 
     }
@@ -150,7 +152,7 @@
     @include transform(scale(1));
     @include transition(.3s ease-in-out);
     }
-    .g-cualidades-item-imagen.efectoimg3:hover img {
+    .g-cualidades-link:hover .g-cualidades-item-imagen.efectoimg3 img {
        @include transform(scale(1.2));
     }
 
@@ -160,7 +162,7 @@
     	@include transition(.3s ease-in-out);
 
     }
-    .g-cualidades-item-imagen.efectoimg4:hover img {
+    .g-cualidades-link:hover .g-cualidades-item-imagen.efectoimg4 img {
     @include filter(grayscale(0%));
     }
 }
