@@ -3,7 +3,7 @@
 Partícula para Gantry 5 que te permite incluir Items de elementos con diferentes características y diseños, ofrenciendo al mismo tiempo múltiples opciones de configuración.
 
 ![preview-items-cualidades](https://cloud.githubusercontent.com/assets/9434043/24688531/29dd57be-1986-11e7-8b81-628f2aa0444a.png)
-![particula-items-cualidades1](https://user-images.githubusercontent.com/9434043/26898460-b567b148-4b91-11e7-91b3-4838624e6764.png)
+![particula-items-cualidades1](https://user-images.githubusercontent.com/9434043/26898584-1aadeaae-4b92-11e7-8239-8c17c5546214.png)
 
 Instalación
 -----------
