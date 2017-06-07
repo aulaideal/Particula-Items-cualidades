@@ -16,7 +16,7 @@ El modo de instalación es muy sencillo:
 + Cópie el archivo scss/_items-cualidades.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss/_items-cualidades.scss
 + Llame al archivo desde tu custom.scss colocando la siguiente linea al comienzo: 
   
-/* Estilos partícula Encabezado */
+/* Estilos partícula "Items-cualidades" */
   
   @import "items-cualidades";
 
