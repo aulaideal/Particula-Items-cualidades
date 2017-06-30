@@ -16,7 +16,7 @@
     @include flex-direction(column);
     @include flex(1);
     padding:0;
-    overflow: hidden;
+    overflow: visible;
     }
     .g-cualidades-item {
         p{
