@@ -276,6 +276,7 @@ div.diseno4-oscuro .g-cualidades-item .g-content {
     border-radius: .2rem;
     margin-top: 3.5rem;
     @include transition(all .5s ease);
+        padding: 1rem;
 }
 div.diseno4-oscuro .g-cualidades-item .g-content:hover {
     border: 1px solid #ffffff;
@@ -293,6 +294,7 @@ div.diseno4-claro .g-cualidades-item .g-content {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.04) inset;
     @include transition(all .5s ease);
     margin-top: 3.5rem;
+    padding: 1rem;
 }
 div.diseno4-claro .g-cualidades-item .g-content:hover {
     border: 1px solid $accent-color-1;
