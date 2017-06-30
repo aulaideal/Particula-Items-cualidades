@@ -19,9 +19,16 @@
     overflow: visible;
     }
     .g-cualidades-item {
-        p{
-    	margin:auto 0 1rem; 
+        .g-content{
+            p{
+        	margin:auto 0 1rem; 
+               
+            }
+         & p:last-child{
+           margin-bottom: 0;
+         }    
         }
+
 
         .g-cualidades-item-titulo{
         margin: 1.7rem 0 .5rem 0;

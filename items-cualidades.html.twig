@@ -104,9 +104,9 @@
 			{%- if item.enlace -%}</a>{%- endif -%}
 			{%- endif -%}
 
-			{% if item.descripcionitem %}
-			<p>{{ item.descripcionitem|raw }}</p>
-			{% endif %}
+			{%- if item.descripcionitem -%}
+			{{ item.descripcionitem|raw }}
+			{%- endif -%}
 
 			{% if item.subfeature1 or item.subfeature2 or item.subfeature3 or item.subfeature4 or item.subfeature5 %}
 			<ul class="g-cualidades-subs-item">
@@ -178,9 +178,9 @@
 			</div>
 			{% endif %}
 
-			{% if item.descripcionitem %}
-			<p>{{- item.descripcionitem|raw -}}</p>
-			{% endif %}
+			{%- if item.descripcionitem -%}
+			{{- item.descripcionitem|raw -}}
+			{%- endif -%}
 			
 			{% if item.subfeature1 or item.subfeature2 or item.subfeature3 or item.subfeature4 or item.subfeature5 %}
 			<ul class="g-cualidades-subs-item">
@@ -246,9 +246,9 @@
 				{%- endif -%}
 
 
-				{% if item.descripcionitem %}
-				<p>{{ item.descripcionitem|raw }}</p>
-				{% endif %}
+				{%- if item.descripcionitem -%}
+				{{ item.descripcionitem|raw }}
+				{%- endif -%}
 
 				{% if item.subfeature1 or item.subfeature2 or item.subfeature3 or item.subfeature4 or item.subfeature5 %}
 				<ul class="g-cualidades-subs-item">
