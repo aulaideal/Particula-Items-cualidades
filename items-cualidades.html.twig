@@ -12,6 +12,7 @@
 
 
 {% block particle %}
+{% do gantry.theme.joomla(true) %}
 <div class="g-cualidades {{ particle.disenoparticula }}{% if particle.clasecssgeneral %} {{ particle.clasecssgeneral|e }}{% endif %}" {% if particle.extrageneral %}{{ attr_extrageneral|raw }}{% endif %}>
 	
 	<div class="g-cualidades-bloqueintro">
