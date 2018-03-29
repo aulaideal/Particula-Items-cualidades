@@ -373,6 +373,7 @@ form:
                   label: Texto del Botón
                   description: Ingrese el texto del botón.
                   placeholder: 'Leér más'
+                  default: 'Leér más'
 
 
                 estiloboton:

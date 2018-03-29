@@ -120,7 +120,7 @@
 			{% endif %}
 			{% if item.textoboton %}
 			<div class="g-cualidades-item-button">
-				<a class="btn {% if particle.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
+				<a class="btn {% if item.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
 					{{ item.textoboton|raw }}
 				</a>
 			</div>
@@ -195,7 +195,7 @@
 			
 			{% if item.textoboton %}
 			<div class="g-cualidades-item-button">
-				<a class="btn {% if particle.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
+				<a class="btn {% if item.estiloboton %}{{ item.estiloboton|e }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
 					{{- item.textoboton|raw -}}
 				</a>
 			</div>
@@ -263,7 +263,7 @@
 				
 				{% if item.textoboton %}
 				<div class="g-cualidades-item-button">
-				<a class="btn {% if particle.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
+				<a class="btn {% if item.estiloboton %}{{ item.estiloboton }}{% endif %} {% if item.tamanoboton!='normal' %}{{ item.tamanoboton|e }}{% endif %} {% if item.fullwidth %}btn-block{% endif %}" target="{{ particle.target }}" href="{{ item.enlace }}">
 					{{- item.textoboton|raw -}}
 				</a>
 				</div>
